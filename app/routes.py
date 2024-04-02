@@ -2,7 +2,7 @@
 
 from app import app
 from flask import render_template
-from app.api import get_external_data
+from app.api import PirateWeatherAPI
 
 @app.route('/')
 def home():
