@@ -1,0 +1,58 @@
+body {
+  background-color: #e5e5e5; /* Light grey background as seen in the design */
+  font-family: 'Arial', sans-serif; /* Substitute for the sans-serif font in the design */
+  color: #333333; /* Primary text color */
+}
+
+.navbar {
+  background-color: #ffffff; /* White navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding slight shadow to navbar */
+}
+
+/* Card style for weather */
+.weather-card {
+  background-color: #ffffff; /* White background for cards */
+  border-radius: 15px; /* Rounded corners for cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Card shadow */
+  padding: 20px; /* Spacing inside cards */
+  margin-bottom: 20px; /* Space between cards */
+}
+
+/* Blue top area of weather card */
+.weather-card-top {
+  background-color: #007BFF; /* Blue background color for the top part of the card */
+  color: #ffffff; /* White text on blue background */
+  border-radius: 15px 15px 0 0; /* Only round the top corners */
+  padding: 15px; /* Padding inside the top area */
+}
+
+/* General text inside the card */
+.weather-card .temp {
+  font-size: 50px; /* Large text for temperature */
+  font-weight: bold; /* Make the font bold */
+}
+
+.weather-card .description {
+  font-size: 20px; /* Description text size */
+}
+
+/* Button styles */
+.btn-custom {
+  background-color: #007BFF; /* Blue button color */
+  border: none; /* No borders */
+  color: white; /* White text */
+  border-radius: 20px; /* Rounded button edges */
+  padding: 10px 20px; /* Button padding */
+}
+
+.btn-custom:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  color: white;
+}
+
+/* Weather icon styles */
+.weather-icon {
+  width: 50px; /* Set a fixed width for icons */
+  height: 50px; /* Set a fixed height for icons */
+  margin-right: 10px; /* Margin to the right of the icon */
+}
