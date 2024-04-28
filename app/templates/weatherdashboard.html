@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="weather-dashboard" class="weather-dashboard">
+        <div class="current-weather">
+            <h2>Current Weather</h2>
+            <div class="weather-info">
+                <span id="weather-temp">--°</span>
+                <img id="weather-icon" src="" alt="Weather Icon">
+                <p id="weather-desc">Loading...</p>
+            </div>
+        </div>
+        <div class="hourly-forecast">
+            <h2>Hourly Forecast</h2>
+            <div id="hourly-forecast-container" class="forecast-container"></div>
+        </div>
+        <div class="weekly-forecast">
+            <h2>Weekly Forecast</h2>
+            <div id="weekly-forecast-container" class="forecast-container"></div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
