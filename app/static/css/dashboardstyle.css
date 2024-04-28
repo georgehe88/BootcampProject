@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e0e0e0;
+}
+
+.weather-dashboard {
+    text-align: center;
+    padding: 20px;
+}
+
+.current-weather, .hourly-forecast, .weekly-forecast {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.weather-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#weather-temp {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.forecast-container {
+    display: flex;
+    overflow-x: auto;
+}
+
+.hourly-forecast .forecast-container > div,
+.weekly-forecast .forecast-container > div {
+    padding: 10px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hourly-forecast .forecast-container > div {
+    border-right: 1px solid #ddd;
+}
+
+.weekly-forecast .forecast-container > div:not(:last-child) {
+    border-right: 1px solid #ddd;
+}
