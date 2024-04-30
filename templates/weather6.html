@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 400px;"></div>
+    <div id="search">
+        <input type="text" id="locationInput" placeholder="Enter location (e.g., city name)" />
+        <button onclick="searchWeather()">Search</button>
+        <button onclick="getCurrentLocation()">Use Current Location</button>
+    </div>
+    <div id="weather-info">
+        <p id="current-time"></p>
+        <p id="weather-conditions"></p>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function searchWeather() {
+            var locationInput = document.getElementById('locationInput').value;
+            fetchWeather(locationInput);
+        }
+
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    map.setView([lat, lon], 13);
+                    fetchWeather(lat + ',' + lon);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function fetchWeather(location) {
+            // Fetch weather data based on location
+            fetch(`/get_weather`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `location=${location}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    // Clear existing markers
+                    map.eachLayer(function (layer) {
+                        if (layer instanceof L.Marker) {
+                            map.removeLayer(layer);
+                        }
+                    });
+
+                    // Add marker for the searched location
+                    var marker = L.marker([data.latitude, data.longitude]).addTo(map);
+                    marker.bindPopup(`<b>Temperature:</b> ${data.currently.temperature} °C`).openPopup();
+
+                    // Update weather information below the map
+                    document.getElementById('current-time').textContent = `Current Time: ${new Date().toLocaleString()}`;
+                    document.getElementById('weather-conditions').textContent = `Weather Conditions: ${data.currently.summary}`;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
