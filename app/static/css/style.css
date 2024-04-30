@@ -1,0 +1,58 @@
+body {
+  background-color: #e5e5e5; 
+  font-family: 'Arial', sans-serif;
+  color: #333333; 
+}
+
+.navbar {
+  background-color:
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Card style for weather */
+.weather-card {
+  background-color: 
+  border-radius: 15px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px; 
+  margin-bottom: 20px;
+}
+
+/* Blue top area of weather card */
+.weather-card-top {
+  background-color: #007BFF; 
+  color: #ffffff; 
+  border-radius: 15px 15px 0 0; 
+  padding: 15px;
+}
+
+/* General text inside the card */
+.weather-card .temp {
+  font-size: 50px; 
+  font-weight: bold; 
+}
+
+.weather-card .description {
+  font-size: 20px; 
+}
+
+/* Button styles */
+.btn-custom {
+  background-color: #007BFF; 
+  border: none; 
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3; 
+  color: white;
+}
+
+/* Weather icon styles */
+.weather-icon {
+  width: 50px;
+  height: 50px; 
+  margin-right: 10px;
+}
